@@ -33,9 +33,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_Save_Changes = new System.Windows.Forms.Button();
             this.btn_Filter = new System.Windows.Forms.Button();
-            this.btn_Add_Category = new System.Windows.Forms.Button();
-            this.btn_Add_Brand = new System.Windows.Forms.Button();
-            this.btn_Add_Product = new System.Windows.Forms.Button();
+            this.btn_Show_Add_Category = new System.Windows.Forms.Button();
+            this.btn_Show_Add_Brand = new System.Windows.Forms.Button();
+            this.btn_Show_Add_Product = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,41 +83,41 @@
             this.btn_Filter.Text = "Filtra";
             this.btn_Filter.UseVisualStyleBackColor = true;
             // 
-            // btn_Add_Category
+            // btn_Show_Add_Category
             // 
-            this.btn_Add_Category.Location = new System.Drawing.Point(31, 12);
-            this.btn_Add_Category.Name = "btn_Add_Category";
-            this.btn_Add_Category.Size = new System.Drawing.Size(202, 81);
-            this.btn_Add_Category.TabIndex = 5;
-            this.btn_Add_Category.Text = "Aggiungi Categoria";
-            this.btn_Add_Category.UseVisualStyleBackColor = true;
+            this.btn_Show_Add_Category.Location = new System.Drawing.Point(31, 12);
+            this.btn_Show_Add_Category.Name = "btn_Show_Add_Category";
+            this.btn_Show_Add_Category.Size = new System.Drawing.Size(202, 81);
+            this.btn_Show_Add_Category.TabIndex = 5;
+            this.btn_Show_Add_Category.Text = "Aggiungi Categoria";
+            this.btn_Show_Add_Category.UseVisualStyleBackColor = true;
             // 
-            // btn_Add_Brand
+            // btn_Show_Add_Brand
             // 
-            this.btn_Add_Brand.Location = new System.Drawing.Point(562, 12);
-            this.btn_Add_Brand.Name = "btn_Add_Brand";
-            this.btn_Add_Brand.Size = new System.Drawing.Size(202, 81);
-            this.btn_Add_Brand.TabIndex = 6;
-            this.btn_Add_Brand.Text = "Aggiungi Brand";
-            this.btn_Add_Brand.UseVisualStyleBackColor = true;
+            this.btn_Show_Add_Brand.Location = new System.Drawing.Point(562, 12);
+            this.btn_Show_Add_Brand.Name = "btn_Show_Add_Brand";
+            this.btn_Show_Add_Brand.Size = new System.Drawing.Size(202, 81);
+            this.btn_Show_Add_Brand.TabIndex = 6;
+            this.btn_Show_Add_Brand.Text = "Aggiungi Brand";
+            this.btn_Show_Add_Brand.UseVisualStyleBackColor = true;
             // 
-            // btn_Add_Product
+            // btn_Show_Add_Product
             // 
-            this.btn_Add_Product.Location = new System.Drawing.Point(304, 12);
-            this.btn_Add_Product.Name = "btn_Add_Product";
-            this.btn_Add_Product.Size = new System.Drawing.Size(202, 81);
-            this.btn_Add_Product.TabIndex = 7;
-            this.btn_Add_Product.Text = "Aggiungi Prodotto";
-            this.btn_Add_Product.UseVisualStyleBackColor = true;
+            this.btn_Show_Add_Product.Location = new System.Drawing.Point(304, 12);
+            this.btn_Show_Add_Product.Name = "btn_Show_Add_Product";
+            this.btn_Show_Add_Product.Size = new System.Drawing.Size(202, 81);
+            this.btn_Show_Add_Product.TabIndex = 7;
+            this.btn_Show_Add_Product.Text = "Aggiungi Prodotto";
+            this.btn_Show_Add_Product.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_Add_Product);
-            this.Controls.Add(this.btn_Add_Brand);
-            this.Controls.Add(this.btn_Add_Category);
+            this.Controls.Add(this.btn_Show_Add_Product);
+            this.Controls.Add(this.btn_Show_Add_Brand);
+            this.Controls.Add(this.btn_Show_Add_Category);
             this.Controls.Add(this.btn_Filter);
             this.Controls.Add(this.btn_Save_Changes);
             this.Controls.Add(this.dataGridView1);
@@ -137,9 +137,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_Save_Changes;
         private System.Windows.Forms.Button btn_Filter;
-        private System.Windows.Forms.Button btn_Add_Category;
-        private System.Windows.Forms.Button btn_Add_Brand;
-        private System.Windows.Forms.Button btn_Add_Product;
+        private System.Windows.Forms.Button btn_Show_Add_Category;
+        private System.Windows.Forms.Button btn_Show_Add_Brand;
+        private System.Windows.Forms.Button btn_Show_Add_Product;
     }
 }
 
