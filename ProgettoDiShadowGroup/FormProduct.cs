@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProgettoDiShadowGroup
 {
-    public partial class FormProducts : Form
+    public partial class FormProduct : Form
     {
-        public FormProducts()
+        public FormProduct()
         {
             InitializeComponent();
         }

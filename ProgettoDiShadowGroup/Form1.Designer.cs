@@ -91,6 +91,7 @@
             this.btn_Show_Add_Category.TabIndex = 5;
             this.btn_Show_Add_Category.Text = "Aggiungi Categoria";
             this.btn_Show_Add_Category.UseVisualStyleBackColor = true;
+            this.btn_Show_Add_Category.Click += new System.EventHandler(this.btn_Show_Add_Category_Click);
             // 
             // btn_Show_Add_Brand
             // 
