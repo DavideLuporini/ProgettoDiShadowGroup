@@ -46,6 +46,7 @@
             this.comboBox_Filter_Category.Name = "comboBox_Filter_Category";
             this.comboBox_Filter_Category.Size = new System.Drawing.Size(179, 28);
             this.comboBox_Filter_Category.TabIndex = 0;
+            this.comboBox_Filter_Category.SelectionChangeCommitted += new System.EventHandler(this.comboBox_Filter_Category_SelectionChangeCommitted);
             // 
             // comboBox_Filter_Brand
             // 
@@ -54,6 +55,7 @@
             this.comboBox_Filter_Brand.Name = "comboBox_Filter_Brand";
             this.comboBox_Filter_Brand.Size = new System.Drawing.Size(179, 28);
             this.comboBox_Filter_Brand.TabIndex = 1;
+            this.comboBox_Filter_Brand.SelectionChangeCommitted += new System.EventHandler(this.comboBox_Filter_Brand_SelectionChangeCommitted);
             // 
             // dataGridView1
             // 

@@ -89,5 +89,19 @@ namespace ProgettoDiShadowGroup
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
             fillDataViewGrid(brand_id , category_id );
         }
+
+        private void comboBox_Filter_Brand_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var brand_id = (int)comboBox_Filter_Brand.SelectedValue;
+            var category_id = (int)comboBox_Filter_Category.SelectedValue;
+            fillDataViewGrid(brand_id, category_id);
+        }
+
+        private void comboBox_Filter_Category_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var brand_id = (int)comboBox_Filter_Brand.SelectedValue;
+            var category_id = (int)comboBox_Filter_Category.SelectedValue;
+            fillDataViewGrid(brand_id, category_id);
+        }
     }
 }
