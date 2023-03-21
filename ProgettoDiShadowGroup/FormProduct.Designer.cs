@@ -150,6 +150,7 @@
             this.Controls.Add(this.comboBox_Category);
             this.Name = "FormProduct";
             this.Text = "FormProducts";
+            this.Load += new System.EventHandler(this.FormProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
