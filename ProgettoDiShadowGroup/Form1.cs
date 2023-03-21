@@ -25,5 +25,10 @@ namespace ProgettoDiShadowGroup
         {
             FormBrand f1 = new FormBrand(); f1.Show();
         }
+
+        private void btn_Show_Add_Product_Click(object sender, EventArgs e)
+        {
+            FormProduct f1 = new FormProduct(); f1.Show();
+        }
     }
 }

@@ -110,6 +110,7 @@
             this.btn_Show_Add_Product.TabIndex = 7;
             this.btn_Show_Add_Product.Text = "Aggiungi Prodotto";
             this.btn_Show_Add_Product.UseVisualStyleBackColor = true;
+            this.btn_Show_Add_Product.Click += new System.EventHandler(this.btn_Show_Add_Product_Click);
             // 
             // Form1
             // 
