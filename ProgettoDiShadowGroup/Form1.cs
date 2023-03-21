@@ -80,11 +80,10 @@ namespace ProgettoDiShadowGroup
 
         private void btn_Filter_Click(object sender, EventArgs e)
         {
-            var brand = comboBox_Filter_Brand.SelectedItem as DataRowView;
-            var brand_id = int.Parse($"{brand["brand_id"]}");
-            var category = comboBox_Filter_Category.SelectedItem as DataRowView;
-            var category_id = int.Parse($"{category["category_id"]}");
-            fillDataViewGrid(brand_id, category_id);
+            var brand_id = (int)comboBox_Filter_Brand.SelectedValue ;
+            var category_id = (int)comboBox_Filter_Category.SelectedValue;
+
+            fillDataViewGrid(brand_id , category_id );
         }
     }
 }
