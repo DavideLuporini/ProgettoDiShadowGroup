@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProgettoDiShadowGroup
 {
@@ -43,7 +45,14 @@ namespace ProgettoDiShadowGroup
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            comboBox_Filter_Brand.DataSource = ctx.brands.ToList();
+            comboBox_Filter_Brand.ValueMember = "brand_id";
+            comboBox_Filter_Brand.DisplayMember = "brand_name";
 
+
+            comboBox_Filter_Category.DataSource = ctx.categories.ToList();
+            comboBox_Filter_Category.ValueMember = "category_id";
+            comboBox_Filter_Category.DisplayMember = "category_name";
         }
     }
 }
