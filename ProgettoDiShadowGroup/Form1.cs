@@ -75,14 +75,18 @@ namespace ProgettoDiShadowGroup
                             modelYear = product.model_year,
                             listPrice = product.list_price,
                         };
-            dataGridView1.DataSource = table.ToList();
+            if (table.ToList().Count == 0) 
+            {
+                dataGridView1.DataSource = null;
+                MessageBox.Show("nessun elemento trovato");
+             }
+            else dataGridView1.DataSource = table.ToList();
         }
 
         private void btn_Filter_Click(object sender, EventArgs e)
         {
             var brand_id = (int)comboBox_Filter_Brand.SelectedValue ;
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
-
             fillDataViewGrid(brand_id , category_id );
         }
     }

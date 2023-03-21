@@ -63,7 +63,8 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(733, 216);
-            this.dataGridView1.TabIndex = 2;            // 
+            this.dataGridView1.TabIndex = 2;
+            // 
             // btn_Save_Changes
             // 
             this.btn_Save_Changes.Location = new System.Drawing.Point(574, 403);
@@ -75,9 +76,9 @@
             // 
             // btn_Filter
             // 
-            this.btn_Filter.Location = new System.Drawing.Point(667, 147);
+            this.btn_Filter.Location = new System.Drawing.Point(645, 137);
             this.btn_Filter.Name = "btn_Filter";
-            this.btn_Filter.Size = new System.Drawing.Size(97, 28);
+            this.btn_Filter.Size = new System.Drawing.Size(119, 38);
             this.btn_Filter.TabIndex = 4;
             this.btn_Filter.Text = "Filtra";
             this.btn_Filter.UseVisualStyleBackColor = true;
