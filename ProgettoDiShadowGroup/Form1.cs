@@ -23,12 +23,20 @@ namespace ProgettoDiShadowGroup
 
         private void btn_Show_Add_Category_Click(object sender, EventArgs e)
         {
-            FormBrand f1 = new FormBrand(); f1.Show();
+            FormBrand f1 = new FormBrand(); 
+            f1.ShowDialog();
         }
 
         private void btn_Show_Add_Product_Click(object sender, EventArgs e)
         {
-            FormProduct f1 = new FormProduct(); f1.Show();
+            FormProduct f2 = new FormProduct(); 
+            f2.ShowDialog();
+        }
+
+        private void btn_Show_Add_Brand_Click(object sender, EventArgs e)
+        {
+            FormBrand f3 = new FormBrand();
+            f3.ShowDialog();
         }
     }
 }
