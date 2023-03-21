@@ -45,14 +45,24 @@ namespace ProgettoDiShadowGroup
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox_Filter_Brand.DataSource = ctx.brands.ToList();
-            comboBox_Filter_Brand.ValueMember = "brand_id";
-            comboBox_Filter_Brand.DisplayMember = "brand_name";
+            FillCategoryComboBox();
+            FillBrandComboBox();
 
 
+
+        }
+
+        public void FillCategoryComboBox()
+        {
             comboBox_Filter_Category.DataSource = ctx.categories.ToList();
             comboBox_Filter_Category.ValueMember = "category_id";
             comboBox_Filter_Category.DisplayMember = "category_name";
+        }
+        public void FillBrandComboBox()
+        {
+            comboBox_Filter_Brand.DataSource = ctx.brands.ToList();
+            comboBox_Filter_Brand.ValueMember = "brand_id";
+            comboBox_Filter_Brand.DisplayMember = "brand_name";
         }
     }
 }
