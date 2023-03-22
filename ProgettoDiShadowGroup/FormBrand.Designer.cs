@@ -57,6 +57,7 @@
             this.btn_Add_Brand.TabIndex = 2;
             this.btn_Add_Brand.Text = "Add brand";
             this.btn_Add_Brand.UseVisualStyleBackColor = true;
+            this.btn_Add_Brand.Click += new System.EventHandler(this.btn_Add_Brand_Click);
             // 
             // FormBrand
             // 

@@ -12,9 +12,26 @@ namespace ProgettoDiShadowGroup
 {
     public partial class FormBrand : Form
     {
+        private db_a967b2_dblogintestEntities ctx;
         public FormBrand()
         {
             InitializeComponent();
+            ctx  = new db_a967b2_dblogintestEntities();
         }
+
+        private void btn_Add_Brand_Click(object sender, EventArgs e)
+        {
+            AddBrand();
+        }
+        private void AddBrand()
+        {
+            brand br = new brand();
+            br.brand_name = textBox_Brand_Name.Text;
+            ctx.brands.Add(br);
+            ctx.SaveChanges();
+            textBox_Brand_Name.Clear();
+
+        }
+
     }
 }
