@@ -61,7 +61,10 @@ namespace ProgettoDiShadowGroup
         public void FillBrandComboBox()
         {
             //TODO agggiungi come sopra
-            comboBox_Filter_Brand.DataSource = ctx.brands.ToList();
+            var brands = new List<brand>();
+            brands.Add(new brand() { brand_id = -1, brand_name = "nessuna selezione" });
+            brands.AddRange(ctx.brands.ToList());
+            comboBox_Filter_Brand.DataSource = brands;
             comboBox_Filter_Brand.ValueMember = "brand_id";
             comboBox_Filter_Brand.DisplayMember = "brand_name";
         }
@@ -83,7 +86,7 @@ namespace ProgettoDiShadowGroup
                             listPrice = product.list_price,
                         };
             var tableList = table.ToList();
-            if (tableList.Any()) 
+            if (!tableList.Any()) 
             {
                 dataGridView1.DataSource = null;
                 MessageBox.Show("nessun elemento trovato");
