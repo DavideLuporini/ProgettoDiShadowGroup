@@ -27,13 +27,13 @@ namespace ProgettoDiShadowGroup
 
         private void btn_Show_Add_Category_Click(object sender, EventArgs e)
         {
-            FormCategory f1 = new FormCategory(); 
+            FormCategory f1 = new FormCategory();
             f1.ShowDialog();
         }
 
         private void btn_Show_Add_Product_Click(object sender, EventArgs e)
         {
-            FormProduct f2 = new FormProduct(); 
+            FormProduct f2 = new FormProduct();
             f2.ShowDialog();
         }
 
@@ -75,30 +75,34 @@ namespace ProgettoDiShadowGroup
             var whereResult = ctx.products.Where(x => x.brand_id == brand_id && x.category_id == category_id);
             if (brand_id == -1 && category_id != -1) whereResult = ctx.products.Where(x => x.category_id == category_id);
             if (brand_id != -1 && category_id == -1) whereResult = ctx.products.Where(x => x.brand_id == brand_id);
-            var table = from product in whereResult
-                        select new
-                        {
-                            productId = product.product_id,
-                            productName = product.product_name,
-                            brandName = product.brand.brand_name,
-                            categoryName = product.category.category_name,
-                            modelYear = product.model_year,
-                            listPrice = product.list_price,
-                        };
-            var tableList = table.ToList();
-            if (!tableList.Any()) 
+            var table = (from product in whereResult
+                         select product).ToList();
+                         //new
+                         //{
+                         //    productId = product.product_id,
+                         //    productName = product.product_name,
+                         //    brandName = product.brand.brand_name,
+                         //    categoryName = product.category.category_name,
+                         //    modelYear = product.model_year,
+                         //    listPrice = product.list_price,
+                         //}).ToList();
+            //var tableList = table.ToList();
+            if (!table.Any())
             {
                 dataGridView1.DataSource = null;
                 MessageBox.Show("nessun elemento trovato");
-             }
-            else dataGridView1.DataSource = tableList;
+            }
+            else
+            {
+                dataGridView1.DataSource = table;
+            }
         }
 
         private void btn_Filter_Click(object sender, EventArgs e)
         {
-            var brand_id = (int)comboBox_Filter_Brand.SelectedValue ;
+            var brand_id = (int)comboBox_Filter_Brand.SelectedValue;
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
-            FillDataViewGrid(brand_id , category_id );
+            FillDataViewGrid(brand_id, category_id);
         }
 
         private void comboBox_Filter_Brand_SelectionChangeCommitted(object sender, EventArgs e)
@@ -118,6 +122,7 @@ namespace ProgettoDiShadowGroup
         private void btn_Save_Changes_Click(object sender, EventArgs e)
         {
             ctx.SaveChanges();
+            MessageBox.Show("Hai modificato questo elemento");
         }
     }
 }
