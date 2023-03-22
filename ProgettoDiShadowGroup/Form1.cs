@@ -111,5 +111,10 @@ namespace ProgettoDiShadowGroup
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
             FillDataViewGrid(brand_id, category_id);
         }
+
+        private void btn_Save_Changes_Click(object sender, EventArgs e)
+        {
+            ctx.SaveChanges();
+        }
     }
 }

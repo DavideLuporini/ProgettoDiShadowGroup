@@ -75,6 +75,7 @@
             this.btn_Save_Changes.TabIndex = 3;
             this.btn_Save_Changes.Text = "Salva";
             this.btn_Save_Changes.UseVisualStyleBackColor = true;
+            this.btn_Save_Changes.Click += new System.EventHandler(this.btn_Save_Changes_Click);
             // 
             // btn_Filter
             // 
