@@ -16,7 +16,7 @@ namespace ProgettoDiShadowGroup
         public FormBrand()
         {
             InitializeComponent();
-            ctx  = new db_a967b2_dblogintestEntities();
+            ctx = new db_a967b2_dblogintestEntities();
         }
 
         private void btn_Add_Brand_Click(object sender, EventArgs e)
@@ -27,20 +27,24 @@ namespace ProgettoDiShadowGroup
         {
             brand br = new brand();
             br.brand_name = textBox_Brand_Name.Text.Trim();
-            if (br.brand_name != ""  &&  br.brand_name != null )
+            if (br.brand_name != "" && br.brand_name != null)
             {
-                ctx.brands.Add(br);
-                ctx.SaveChanges();
-                textBox_Brand_Name.Clear();
-                MessageBox.Show(" Hai aggiunto un nuovo Brand con successo!");
+                if (ctx.brands.Any(x => x.brand_name == br.brand_name))
+                {
+                    MessageBox.Show("Il brand inserito esiste già");
+                }
+                else 
+                {
+                    ctx.brands.Add(br);
+                    ctx.SaveChanges();
+                    textBox_Brand_Name.Clear();
+                    MessageBox.Show("Hai aggiunto un nuovo Brand con successo!");
+                }
             }
             else
             {
-                MessageBox.Show(" Non hai inserito nessun Brand");
+                MessageBox.Show("Non hai inserito nessun Brand");
             }
-                
-
         }
-
     }
 }

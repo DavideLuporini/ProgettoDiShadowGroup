@@ -27,7 +27,7 @@ namespace ProgettoDiShadowGroup
 
         private void btn_Show_Add_Category_Click(object sender, EventArgs e)
         {
-            FormBrand f1 = new FormBrand(); 
+            FormCategory f1 = new FormCategory(); 
             f1.ShowDialog();
         }
 
