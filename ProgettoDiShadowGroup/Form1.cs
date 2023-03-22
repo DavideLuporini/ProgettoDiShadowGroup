@@ -51,21 +51,28 @@ namespace ProgettoDiShadowGroup
 
         public void FillCategoryComboBox()
         {
-            comboBox_Filter_Category.DataSource = ctx.categories.ToList();
+            var categories = new List<category>();
+            categories.Add(new category() { category_id = -1, category_name = "nessuna selezione" });
+            categories.AddRange(ctx.categories.ToList());
+            comboBox_Filter_Category.DataSource = categories;
             comboBox_Filter_Category.ValueMember = "category_id";
             comboBox_Filter_Category.DisplayMember = "category_name";
         }
         public void FillBrandComboBox()
         {
+            //TODO agggiungi come sopra
             comboBox_Filter_Brand.DataSource = ctx.brands.ToList();
             comboBox_Filter_Brand.ValueMember = "brand_id";
             comboBox_Filter_Brand.DisplayMember = "brand_name";
         }
 
 
-        public void fillDataViewGrid( int brand_id , int category_id)
+        public void FillDataViewGrid(int brand_id, int category_id)
         {
-            var table = from product in ctx.products.Where(x => x.brand_id == brand_id && x.category_id == category_id)
+            var whereResult = ctx.products.Where(x => x.brand_id == brand_id && x.category_id == category_id);
+            if (brand_id == -1 && category_id != -1) whereResult = ctx.products.Where(x => x.category_id == category_id);
+            if (brand_id != -1 && category_id == -1) whereResult = ctx.products.Where(x => x.brand_id == brand_id);
+            var table = from product in whereResult
                         select new
                         {
                             productId = product.product_id,
@@ -75,33 +82,34 @@ namespace ProgettoDiShadowGroup
                             modelYear = product.model_year,
                             listPrice = product.list_price,
                         };
-            if (table.ToList().Count == 0) 
+            var tableList = table.ToList();
+            if (tableList.Any()) 
             {
                 dataGridView1.DataSource = null;
                 MessageBox.Show("nessun elemento trovato");
              }
-            else dataGridView1.DataSource = table.ToList();
+            else dataGridView1.DataSource = tableList;
         }
 
         private void btn_Filter_Click(object sender, EventArgs e)
         {
             var brand_id = (int)comboBox_Filter_Brand.SelectedValue ;
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
-            fillDataViewGrid(brand_id , category_id );
+            FillDataViewGrid(brand_id , category_id );
         }
 
         private void comboBox_Filter_Brand_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var brand_id = (int)comboBox_Filter_Brand.SelectedValue;
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
-            fillDataViewGrid(brand_id, category_id);
+            FillDataViewGrid(brand_id, category_id);
         }
 
         private void comboBox_Filter_Category_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var brand_id = (int)comboBox_Filter_Brand.SelectedValue;
             var category_id = (int)comboBox_Filter_Category.SelectedValue;
-            fillDataViewGrid(brand_id, category_id);
+            FillDataViewGrid(brand_id, category_id);
         }
     }
 }
