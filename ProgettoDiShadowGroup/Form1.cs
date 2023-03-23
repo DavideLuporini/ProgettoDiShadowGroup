@@ -95,6 +95,12 @@ namespace ProgettoDiShadowGroup
             else
             {
                 dataGridView1.DataSource = table;
+                //dataGridView1.ReadOnly= false;
+                dataGridView1.Columns["brand_id"].Visible= false;
+                dataGridView1.Columns["category_id"].Visible= false;
+                //dataGridView1.Columns["category"].DataGridView.DataSource = ctx.products.Select(x => x.category_id == category_id);
+
+                //dataGridView1.Columns["brand_id"].DataPropertyName
             }
         }
 
