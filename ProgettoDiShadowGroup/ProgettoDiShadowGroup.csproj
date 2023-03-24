@@ -62,6 +62,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\brand.cs" />
+    <Compile Include="Entities\category.cs" />
     <Compile Include="RowEntry.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="customer.cs">

@@ -77,16 +77,7 @@ namespace ProgettoDiShadowGroup
             if (brand_id != -1 && category_id == -1) whereResult = ctx.products.Where(x => x.brand_id == brand_id);
             var table = (from product in whereResult
                          select product).ToList();
-                         //new
-                         //{
-                         //    productId = product.product_id,
-                         //    productName = product.product_name,
-                         //    brandName = product.brand.brand_name,
-                         //    categoryName = product.category.category_name,
-                         //    modelYear = product.model_year,
-                         //    listPrice = product.list_price,
-                         //}).ToList();
-            //var tableList = table.ToList();
+
             if (!table.Any())
             {
                 dataGridView1.DataSource = null;
@@ -95,12 +86,27 @@ namespace ProgettoDiShadowGroup
             else
             {
                 dataGridView1.DataSource = table;
-                //dataGridView1.ReadOnly= false;
-                dataGridView1.Columns["brand_id"].Visible= false;
-                dataGridView1.Columns["category_id"].Visible= false;
-                //dataGridView1.Columns["category"].DataGridView.DataSource = ctx.products.Select(x => x.category_id == category_id);
+                //dataGridView1.Columns["brand_id"].Visible= false;
+                dataGridView1.Columns["category_id"].ReadOnly = true;
+                dataGridView1.Columns["brand"].Visible = true;
+                dataGridView1.Columns["order_items"].Visible = false;
+                dataGridView1.Columns["stocks"].Visible = false;
+                dataGridView1.Columns["category"].Visible = false;
 
-                //dataGridView1.Columns["brand_id"].DataPropertyName
+                dataGridView1.Columns["brand_id"].Visible = false;
+                if (dataGridView1.Columns["editbrand_id"] == null)
+                {
+
+                    DataGridViewComboBoxColumn dgvCombo = new DataGridViewComboBoxColumn();
+                    dgvCombo.Name = "editbrand_id";
+                    dgvCombo.DataSource = ctx.brands.Select(b => b.brand_id.ToString()).ToList();
+                    dataGridView1.Columns.Add(dgvCombo);
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Cells["editbrand_id"].Value = row.Cells["brand_id"].Value.ToString();
+                    }
+                        dataGridView1.Columns["editbrand_id"].DisplayIndex = 3;
+                }
             }
         }
 
@@ -127,8 +133,36 @@ namespace ProgettoDiShadowGroup
 
         private void btn_Save_Changes_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if(row.Cells["editbrand_id"].Value == null)
+                {
+                    continue;
+                }
+                string valore = row.Cells["editbrand_id"].Value.ToString();
+                brand whereResult = ctx.brands.Where(x => x.brand_id.ToString() == valore).Single();
+                row.Cells["brand"].Value = whereResult;
+                row.Cells["brand_id"].Value = whereResult.brand_id;
+
+            }
             ctx.SaveChanges();
             MessageBox.Show("Hai modificato questo elemento");
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //dataGridView1.Columns["brand_id"].Visible = false;
+            //DataGridViewComboBoxColumn dgvCombo = new DataGridViewComboBoxColumn();
+            //dgvCombo.Name = "MioBrand";
+            //dgvCombo.DataSource = ctx.brands.Select(b => b.brand_id).ToList();
+            //dataGridView1.Columns.Add(dgvCombo);
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+
+        }
+
     }
 }
